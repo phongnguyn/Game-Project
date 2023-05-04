@@ -1,5 +1,4 @@
-#include <string>
-#include <iostream>
+#include "header.h"
 
 #ifndef PLAYER_H
 #define PLAYER_H
@@ -13,7 +12,7 @@ private:
     int _health;
     int _damage;
 public:
-    void takeDamage(int damage);
+    virtual void takeDamage(int damage);
     void setName(string name);
     string getName();
     void setHealth(int health);

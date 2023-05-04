@@ -1,5 +1,5 @@
 #include "Player.h"
-#include <string>
+#include "header.h"
 
 #ifndef WARRIOR_H
 #define WARRIOR_H

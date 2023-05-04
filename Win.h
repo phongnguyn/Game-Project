@@ -9,7 +9,7 @@ class Win
 private:
     sf::RenderWindow* window;
     int stage = 0;
-    Player* player;
+    Player* player1;
 public:
     Win(/* args */);
     void check_stage();
@@ -28,14 +28,13 @@ void Win::check_stage() {
     switch(stage) {
         case 0:
             
-        break;
+            break;
         case 1:
 
-        break;
+            break;
         case 2:
 
-        break;
-        
+            break;   
     }
 }
 

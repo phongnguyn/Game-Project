@@ -1,4 +1,5 @@
 #include "Warrior.h"
+#include "header.h"
 
 void Warrior::swingWeapon(Player* opponent) {
     cout << Warrior::getName() << " attacked " << opponent->getName() << " with a " << _weapon << endl; 
