@@ -1,7 +1,7 @@
 #include <iostream>
-#include "player.h"
-#include "wizard.h"
-#include "warrior.h"
+#include "Player.h"
+#include "Wizard.h"
+#include "Warrior.h"
 
 using namespace std;
 

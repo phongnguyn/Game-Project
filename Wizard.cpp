@@ -1,4 +1,4 @@
-#include "wizard.h" 
+#include "Wizard.h" 
 
 void Wizard::castSpell(Player* opponent) {
     cout << Wizard::getName() << " attacked " << opponent->getName() << " with a spell of " << _mana << " mana" << endl; 

@@ -1,4 +1,4 @@
-#include "warrior.h"
+#include "Warrior.h"
 
 void Warrior::swingWeapon(Player* opponent) {
     cout << Warrior::getName() << " attacked " << opponent->getName() << " with a " << _weapon << endl; 

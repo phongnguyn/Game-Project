@@ -1,4 +1,4 @@
-#include "player.h"
+#include "Player.h"
 
 void Player::takeDamage(int damage) {
     cout << _name << " take " << damage << " damage\n";

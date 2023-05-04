@@ -1,10 +1,10 @@
-#include "player.h"
+#include "Player.h"
 #include <string>
 
 #ifndef WIZARD_H
 #define WIZARD_H
 
-class Wizard: public Player
+class Wizard: public Player 
 {
 private:
     int _mana;
