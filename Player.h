@@ -8,17 +8,17 @@ using namespace std;
 class Player
 {
 private:
-    string _name;
-    int _health;
-    int _damage;
+    float health;
+    float damage;
+    float stamina;
 public:
-    virtual void takeDamage(int damage);
-    void setName(string name);
-    string getName();
-    void setHealth(int health);
-    int getHealth();
-    void setDamage(int damage);
-    int getDamge();
+    virtual void takeDamage(int _damage);
+    void setHealth(int _health);
+    float getHealth();
+    void setDamage(int _damage);
+    float getDamge();
+    void setStamina(float _stamina);
+    float getStamina();
 };
 
 #endif

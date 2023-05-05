@@ -1,19 +1,19 @@
 #include "Player.h"
 
-void Player::takeDamage(int damage) {
-    cout << _name << " take " << damage << " damage\n";
-    _health -= damage;
+void Player::takeDamage(int _damage) {
+    cout << _damage << " damage\n";
+    health -= _damage;
 }
 
-void Player::setName(string name) {_name = name;}
+void Player::setHealth(int _health) {health = _health;}
 
-string Player::getName() {return _name;}
+float Player::getHealth() {return health;}
 
-void Player::setHealth(int health) {_health = health;}
+void Player::setDamage(int _damage) {damage = _damage;}
 
-int Player::getHealth() {return _health;}
+float Player::getDamge() {return damage;}
 
-void Player::setDamage(int damage) {_damage = damage;}
+void Player::setStamina(float _stamina) {stamina = _stamina;}
 
-int Player::getDamge() {return _damage;}
+float Player::getStamina() {return stamina;}
 

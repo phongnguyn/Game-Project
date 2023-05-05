@@ -2,13 +2,13 @@
 #include "header.h"
 
 void Warrior::swingWeapon(Player* opponent) {
-    cout << Warrior::getName() << " attacked " << opponent->getName() << " with a " << _weapon << endl; 
+    cout << " with a " << _weapon << endl; 
     opponent->takeDamage(Warrior::getDamge());
 }
 
-Warrior::Warrior(string name, int health, int damage, string weapon) {
+Warrior::Warrior(float health, float damage, string weapon, float stamina) {
     _weapon = weapon;
-    Warrior::setName(name);
     Warrior::setHealth(health);
     Warrior::setDamage(damage);
+    Warrior::setStamina(stamina);
 }   

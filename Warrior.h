@@ -10,10 +10,8 @@ class Warrior: public Player
 {
 private:
     std::string _weapon;
-    int n;
-    
 public:
-    Warrior(string name, int health, int damage, string weapon);
+    Warrior(float health, float damage, string weapon, float stamina);
     void swingWeapon(Player* opponent);
 };
 
