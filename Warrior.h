@@ -4,15 +4,30 @@
 #ifndef WARRIOR_H
 #define WARRIOR_H
 
-using namespace std;
-
-class Warrior: public Player
+class Warrior: virtual public Player
 {
 private:
-    std::string _weapon;
+    string _weapon;
 public:
+    Warrior();
     Warrior(float health, float damage, string weapon, float stamina);
-    void swingWeapon(Player* opponent);
+    void swingWeapon();
 };
+
+Warrior::Warrior() {}
+
+void Warrior::swingWeapon() {
+    if (ShowName()) {cout << __FUNCTION__; return;}
+    
+    cout << " with a " << _weapon << endl; 
+    getOpponent()->takeDamage(Warrior::getDamge());
+}
+
+Warrior::Warrior(float health, float damage, string weapon, float stamina) {
+    _weapon = weapon;
+    setHealth(health);
+    setDamage(damage);
+    setStamina(stamina);
+} 
 
 #endif
