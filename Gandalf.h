@@ -9,7 +9,7 @@ class Gandalf: public Warrior, Wizard
 
 {
 private:
-    GandalfAbilities Abilities[2];
+    
 public:
     Gandalf();
     Gandalf(float health, float damage, string weapon, float stamina);
@@ -22,12 +22,32 @@ typedef void (Gandalf::*GandalfAbilities)();
 
 Gandalf::Gandalf() {
     setNumAbilities(2);
-    GandalfAbilities Abilities[] = {&castSpell, &swingWeapon};
 }
 
-void Gandalf::showAbilities(int n) {setShowName(true); Abilities[n]; setShowName(false);}
+void Gandalf::showAbilities(int n) {
+    setShowName(true); 
+    switch (n)
+    {
+    case 1:
+        Gandalf::castSpell();
+        break;
+    case 2:
+        swingWeapon();
+        break;
+    }; 
+    setShowName(false);}
 
-void Gandalf::excecuteAbilities(int n) {Abilities[n];}
+void Gandalf::excecuteAbilities(int n) {
+    switch (n)
+    {
+    case 1:
+        Gandalf::castSpell();
+        break;
+    case 2:
+        swingWeapon();
+        break;
+    }; 
+}
 
 Gandalf::Gandalf(float health, float damage, string weapon, float stamina)
 {

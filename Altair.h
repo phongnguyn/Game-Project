@@ -1,36 +1,33 @@
 #include "header.h"
+#include "Warrior.h"
 #include "Assasin.h"
-#include "Wizard.h"
 
-#ifndef EZIO_H
-#define EZIO_H
+#ifndef ALTAIR_H
+#define ALTAIR_H
 
-class Ezio: public Assasin, Wizard
-
+class Altair : public Warrior, Assasin
 {
-private:
-    
 public:
-    Ezio();
-    Ezio(float health, float damage, string weapon, float stamina);
+    Altair();
+    Altair(float health, float damage, string weapon, float stamina);
     void showAbilities(int);
     void excecuteAbilities(int);
-    ~Ezio();
+    ~Altair();
 };
 
-Ezio::Ezio() {
+Altair::Altair() {
     setNumAbilities(4); 
 }
 
-void Ezio::showAbilities(int n) {
+void Altair::showAbilities(int n) {
     setShowName(true); 
     switch (n)
     {
     case 1:
-        Ezio::castSpell();
+        Altair::swingWeapon();
         break;
     case 2:
-        Ezio::shank();
+        Altair::shank();
         break;
     case 3:
         evade();
@@ -42,14 +39,14 @@ void Ezio::showAbilities(int n) {
     setShowName(false);
 }
 
-void Ezio::excecuteAbilities(int n) {
+void Altair::excecuteAbilities(int n) {
     switch (n)
     {
     case 1:
-        Ezio::castSpell();
+        Altair::swingWeapon();
         break;
     case 2:
-        Ezio::shank();
+        Altair::shank();
         break;
     case 3:
         evade();
@@ -60,15 +57,14 @@ void Ezio::excecuteAbilities(int n) {
     };
 }
 
-Ezio::Ezio(float health, float damage, string weapon, float stamina)
+Altair::Altair(float health, float damage, string weapon, float stamina)
 {
-    Wizard(health, damage, stamina);
+    Warrior(health, damage, weapon, stamina);
     Assasin(health, damage, weapon, stamina);
 }
 
-Ezio::~Ezio()
+Altair::~Altair()
 {
 }
-
 
 #endif

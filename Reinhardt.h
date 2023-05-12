@@ -10,7 +10,6 @@
 class Reinhardt: public Warrior, public Tanker
 {
 private:
-    ReinhardtAbilities Abilities[3] = {&bash, &block, &swingWeapon};
 public:
     Reinhardt();
     Reinhardt(float health, float damage, string weapon, float stamina);
@@ -28,13 +27,39 @@ Reinhardt::Reinhardt(float health, float damage, string weapon, float stamina) {
     Tanker(health, damage, stamina);
 }
 
-void Reinhardt::showAbilities(int n) {setShowName(true); invoke(Abilities[n]); setShowName(false);}
+void Reinhardt::showAbilities(int n) {
+    setShowName(true); 
+    switch (n)
+    {
+    case 1:
+        Reinhardt::bash();
+        break;
+    case 2:
+        block();
+        break;
+    case 3:
+        swingWeapon();
+        break;
+    }; 
+    setShowName(false);}
 
-void Reinhardt::excecuteAbilities(int n) {Abilities[n]();}
+void Reinhardt::excecuteAbilities(int n) {
+    switch (n)
+    {
+    case 1:
+        Reinhardt::bash();
+        break;
+    case 2:
+        block();
+        break;
+    case 3:
+        swingWeapon();
+        break;
+    }; 
+}
 
 Reinhardt::~Reinhardt()
 {
 }
 
-typedef void(Reinhardt::*ReinhardtAbilities)();
 #endif

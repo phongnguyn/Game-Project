@@ -3,9 +3,6 @@
 #include "Person.h"
 #include "Machine.h"
 
-
-#define quote(x) #x
-
 #ifndef WIN_H
 #define WIN_H
 
@@ -24,7 +21,6 @@ public:
     void gamePlay();
     void gameOver();
     int getStage() {return stage;}
-    int getMode() {return mode;}
     ~Win();
 };
 
@@ -38,7 +34,7 @@ void Win::gameOver() {
     cout << ((mode) ? "Player 2" : "Machine") << (player2->getPlayer()->getHealth() < 0) ? "lost" : "win \n";
     cout << "Play Again? (y/n)\n";
     string in;
-    while (!(cin >> in) && !(in == "y" || in == "n")) {
+    while (!(cin >> in) && !(in == "y" && in == "n")) {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "invalid input, try again\n";
@@ -59,7 +55,7 @@ int Win::characterSelectionScreen() {
     cout << "3 : Gandalf\n";
     cout << "4 : Altair\n";
     int num = 0;
-    while ((cout << "please select a character labeled 1 to 4:") && !(cin >> num) || (num < 5) || (num > 0)) {
+    while ((cout << "please select a character labeled 1 to 4: ") && !(cin >> num) || (num > 4) || (num < 1)) {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "invalid input, try again\n";
@@ -68,15 +64,14 @@ int Win::characterSelectionScreen() {
 }
 
 void Win::selectionScreen() {
-    int num = -1;
-    while ((cout << "please select the game mode, O: single player, 1: multiplayer:") && !(cin >> num) || (num < 2) || (num > -1)) {
+    while ((cout << "please select the game mode, O: single player, 1: multiplayer:") && !(cin >> mode) || (mode > 1) || (mode < 0)) {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "invalid input, try again\n";
     }
     player1 = new Person(characterSelectionScreen());
 
-    if (num) {
+    if (mode) {
         player2 = new Person(characterSelectionScreen());
     }   else player2 = new Machine();
 

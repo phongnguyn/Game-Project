@@ -3,6 +3,7 @@
 #include "Reinhardt.h"
 #include "Ezio.h"
 #include "Gandalf.h"
+#include "Altair.h"
 
 #ifndef PERSON_H
 #define PERSON_H
@@ -34,11 +35,12 @@ Person::Person(int id)
             player = new Ezio(120, 25, "katana", 50);
             break;
         }
-        case 3:
+        case 3: {
             player = new Gandalf(120, 25, "katana", 50);
             break;
+        }
         case 4:
-
+            player = new Altair(120, 25, "katana", 50);
             break;
     }
 }
