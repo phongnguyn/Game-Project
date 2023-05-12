@@ -18,7 +18,7 @@ public:
     ~Machine();
 };
 
-Machine::Machine() : Person(1) {}
+Machine::Machine() : Person(rand() % 4 + 1) {}
 
 void Machine::chooseAbilities() {
     int option = rand() % getPlayer()->getNumAbilities() + 1;
