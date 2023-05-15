@@ -14,12 +14,25 @@ private:
     Person* player1;
     Person* player2;
 public:
+    //constructor
     Win(/* args */);
+
+    //determines stage to play
     void check_stage();
+
+    //determines whether single or multiplayer will be played
     void selectionScreen();
+
+    //controls character selection
     int characterSelectionScreen();
+
+    //controls gameplay
     void gamePlay();
+
+    //controls functionality after game end
     void gameOver();
+
+    //returns stage player is currently in 
     int getStage() {return stage;}
     ~Win();
 };
@@ -29,6 +42,7 @@ Win::Win(/* args */)
     
 }
 
+//controls functionality after game ends
 void Win::gameOver() {
     cout << "Player 1 " << (player1->getPlayer()->getHealth() < 0) ? "lost" : "win \n";
     cout << ((mode) ? "Player 2" : "Machine") << (player2->getPlayer()->getHealth() < 0) ? "lost" : "win \n";
@@ -41,6 +55,7 @@ void Win::gameOver() {
     }
 }
 
+//controls gameplay
 void Win::gamePlay() {
     while (player1->getPlayer()->getHealth() > 0 && player2->getPlayer()->getHealth() > 0) {
         player1->chooseAbilities();
@@ -48,6 +63,7 @@ void Win::gamePlay() {
     }
 }
 
+//controls character selection
 int Win::characterSelectionScreen() {
     cout << "list of characters:\n";
     cout << "1 : Reinhardt\n";
@@ -63,6 +79,7 @@ int Win::characterSelectionScreen() {
     return num;
 }
 
+//controls gametype selection
 void Win::selectionScreen() {
     while ((cout << "please select the game mode, O: single player, 1: multiplayer:") && !(cin >> mode) || (mode > 1) || (mode < 0)) {
         cin.clear();
@@ -75,11 +92,12 @@ void Win::selectionScreen() {
         player2 = new Person(characterSelectionScreen());
     }   else player2 = new Machine();
 
-    player1->getPlayer()->setOpponent(player2->getPlayer());  
-    player2->getPlayer()->setOpponent(player1->getPlayer()); 
+    //player1->getPlayer()->setOpponent(player2->getPlayer());  
+   // player2->getPlayer()->setOpponent(player1->getPlayer()); 
     stage ++;
 }
 
+//determines what stage of gameplay should be running
 void Win::check_stage() {
     switch(stage) {
         case 0:
