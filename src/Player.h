@@ -25,7 +25,7 @@ public:
     void setStamina(float _stamina);
     float getStamina();
     Player* getOpponent();
-    void setOpponent(auto);
+    void setOpponent(Player*);
     void setNumAbilities(int);
     int getNumAbilities();
     bool ShowName() {return showName;}
@@ -46,7 +46,7 @@ float Player::getStamina() {return stamina;}
 
 Player* Player::getOpponent() {return opponent;}
 
-void Player::setOpponent(auto opp) {opponent = opp;}
+void Player::setOpponent(Player* opp) {opponent = opp;}
 
 void Player::setNumAbilities(int _numAbilities) {numAbilities = _numAbilities;}
 

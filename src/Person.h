@@ -52,8 +52,10 @@ void Person::chooseAbilities() {
         player->showAbilities(i);
         cout << "\n";
     }
+
     int num = 0;
-    while (!(cin >> num) || (num < player->getNumAbilities() + 1) || (num > 0)) {
+    
+    while (!(cin >> num) || (num > player->getNumAbilities()) || (num < 1)) {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "invalid input, try again\n";
