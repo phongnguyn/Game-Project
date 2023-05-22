@@ -20,7 +20,7 @@ int main() {
 
     cout << "Let the battle begin!" << endl;
     
-    while (win.getStage() < 5) {
+    while (win.getStage() < 3) {
         win.check_stage();
     }
     

@@ -9,29 +9,24 @@ class Assasin: virtual public Player
 private:
     string _weapon;
 public:
-    Assasin();
-    Assasin(float health, float damage, string weapon, float stamina);
+    Assasin() {}
+    Assasin(string);
     void shank();
     void evade();
     void counter();  
     ~Assasin();
 };
 
-Assasin::Assasin() {}
-
-Assasin::Assasin(float health, float damage, string weapon, float stamina)
-{
-    _weapon = weapon;
-    setHealth(health);
-    setDamage(damage);
-    setStamina(stamina);
-}
+Assasin::Assasin(string weapon) {_weapon = weapon;}
 
 void Assasin::counter() {
     if (ShowName()) {cout << __FUNCTION__; return;}
 }
 
-void Assasin::evade() {if (ShowName()) {cout << __FUNCTION__; return;}}
+void Assasin::evade() {
+    if (ShowName()) {cout << __FUNCTION__; return;}
+    setDamageMultiplier(0);
+}
 
 void Assasin::shank() {if (ShowName()) {cout << __FUNCTION__; return;}}
 

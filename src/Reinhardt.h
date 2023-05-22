@@ -12,19 +12,18 @@ class Reinhardt: public Warrior, public Tanker
 private:
 public:
     Reinhardt();
-    Reinhardt(float health, float damage, string weapon, float stamina);
+    Reinhardt(float health, string weapon, float stamina);
     void showAbilities(int);
     void excecuteAbilities(int);
     ~Reinhardt();
 };
 
-Reinhardt::Reinhardt() {
-    setNumAbilities(3);
-}
+Reinhardt::Reinhardt() {}
 
-Reinhardt::Reinhardt(float health, float damage, string weapon, float stamina) {
-    Warrior(health, damage, weapon, stamina);
-    Tanker(health, damage, stamina);
+Reinhardt::Reinhardt(float health, string weapon, float stamina) : Warrior(weapon) {
+    setHealth(health);
+    setStamina(stamina);
+    setNumAbilities(3);    
 }
 
 void Reinhardt::showAbilities(int n) {
@@ -32,7 +31,7 @@ void Reinhardt::showAbilities(int n) {
     switch (n)
     {
     case 1:
-        Reinhardt::bash();
+        bash();
         break;
     case 2:
         block();

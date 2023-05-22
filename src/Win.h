@@ -30,8 +30,8 @@ Win::Win(/* args */)
 }
 
 void Win::gameOver() {
-    cout << "Player 1 " << (player1->getPlayer()->getHealth() < 0) ? "lost" : "win \n";
-    cout << ((mode) ? "Player 2" : "Machine") << (player2->getPlayer()->getHealth() < 0) ? "lost" : "win \n";
+    cout << "Player 1 " << ((player1->getPlayer()->getHealth() <= 0) ? "lost\n" : "win \n");
+    cout << ((mode) ? "Player 2 " : "Machine ") << ((player2->getPlayer()->getHealth() <= 0) ? "lost\n" : "win\n");
     cout << "Play Again? (y/n)\n";
     string in;
     while (!(cin >> in) && !(in == "y" && in == "n")) {
@@ -39,6 +39,8 @@ void Win::gameOver() {
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "invalid input, try again\n";
     }
+    if (in == "y") {system("clear"); stage = 0;}
+    else stage ++;
 }
 
 void Win::gamePlay() {
@@ -46,6 +48,7 @@ void Win::gamePlay() {
         player1->chooseAbilities();
         player2->chooseAbilities();
     }
+    stage ++;
 }
 
 int Win::characterSelectionScreen() {
@@ -55,7 +58,7 @@ int Win::characterSelectionScreen() {
     cout << "3 : Gandalf\n";
     cout << "4 : Altair\n";
     int num = 0;
-    while ((cout << "please select a character labeled 1 to 4: ") && !(cin >> num) || (num > 4) || (num < 1)) {
+    while ((cout << "please select a character labeled 1 to 4: ") && !(cin >> num) && (num > 4) || (num < 1)) {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "invalid input, try again\n";
@@ -89,7 +92,7 @@ void Win::check_stage() {
             Win::gamePlay();
             break;
         case 2:
-
+            Win::gameOver();
             break;
     }
 }

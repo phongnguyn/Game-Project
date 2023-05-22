@@ -9,19 +9,18 @@ class Player
 {
 private:
     float health;
-    float damage;
     float stamina;
     Player* opponent;
     int numAbilities = 0;
     bool showName = false; 
+    float damageMultiplier = 1;
+
 public:
-    virtual void takeDamage(int _damage) {}
+    virtual void takeDamage(int _damage) {setHealth(getHealth() - damageMultiplier * _damage);}
     virtual void showAbilities(int) {}
     virtual void excecuteAbilities(int) {}
     void setHealth(int _health);
     float getHealth();
-    void setDamage(int _damage);
-    float getDamge();
     void setStamina(float _stamina);
     float getStamina();
     Player* getOpponent();
@@ -30,15 +29,12 @@ public:
     int getNumAbilities();
     bool ShowName() {return showName;}
     void setShowName(bool _showName) {showName = _showName;} 
+    void setDamageMultiplier(float _damageMultiplier);
 };
 
 void Player::setHealth(int _health) {health = _health;}
 
 float Player::getHealth() {return health;}
-
-void Player::setDamage(int _damage) {damage = _damage;}
-
-float Player::getDamge() {return damage;}
 
 void Player::setStamina(float _stamina) {stamina = _stamina;}
 
@@ -52,4 +48,7 @@ void Player::setNumAbilities(int _numAbilities) {numAbilities = _numAbilities;}
 
 int Player::getNumAbilities() {return numAbilities;}
 
+void Player::setDamageMultiplier(float _damageMultiplier) {
+    damageMultiplier = _damageMultiplier;
+}
 #endif

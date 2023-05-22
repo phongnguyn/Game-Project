@@ -28,19 +28,19 @@ Person::Person(int id)
 {
     switch(id) {
         case 1: {
-            player = new Reinhardt(120, 25, "Sword", 50);
+            player = new Reinhardt(120, "Sword", 50);
             break;
         }
         case 2: {
-            player = new Ezio(120, 25, "katana", 50);
+            player = new Ezio(120, "katana", 50);
             break;
         }
         case 3: {
-            player = new Gandalf(120, 25, "katana", 50);
+            player = new Gandalf(120, "katana", 50);
             break;
         }
         case 4:
-            player = new Altair(120, 25, "katana", 50);
+            player = new Altair(120, "katana", 50);
             break;
     }
 }
@@ -48,8 +48,8 @@ Person::Person(int id)
 void Person::chooseAbilities() {
     cout << "please choose one of these abilities\n";
     for (int i = 0; i < player->getNumAbilities(); i ++) {
-        cout << i << " ";
-        player->showAbilities(i);
+        cout << i + 1 << " ";
+        player->showAbilities(i + 1);
         cout << "\n";
     }
 

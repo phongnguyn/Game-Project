@@ -9,7 +9,6 @@ private:
     float armor;
 public:
     Tanker();
-    Tanker(float health, float damage, float stamina);
     void block(); 
     void bash();
     ~Tanker();
@@ -17,18 +16,17 @@ public:
 
 Tanker::Tanker() {}
 
-Tanker::Tanker(float health, float damage, float stamina) {
-    setHealth(health);
-    setDamage(damage);
-    setStamina(stamina);
-}
-
 void Tanker::block() {
     if (ShowName()) {cout << __FUNCTION__; return;}
+    setDamageMultiplier(0.5);
+    setStamina(getStamina() + 25);
 }
 
 void Tanker::bash() {
     if (ShowName()) {cout << __FUNCTION__; return;}
+    setDamageMultiplier(1);
+    getOpponent()->takeDamage(20);
+    setStamina(getStamina() - 20);
 }
 
 Tanker::~Tanker()

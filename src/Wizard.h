@@ -10,7 +10,6 @@ private:
 
 public:
     Wizard();
-    Wizard(int health, int damage, int mana);
     void castSpell();
 };
 
@@ -19,12 +18,7 @@ Wizard::Wizard() {}
 void Wizard::castSpell() { 
     if (ShowName()) {cout << __FUNCTION__; return;}
     
-    getOpponent()->takeDamage(Wizard::getDamge());
+    getOpponent()->takeDamage(20);
 }
 
-Wizard::Wizard(int health, int damage, int stamina) {
-    Wizard::setHealth(health);
-    Wizard::setDamage(damage);
-    setStamina(stamina);
-} 
 #endif

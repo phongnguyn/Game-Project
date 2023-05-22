@@ -12,7 +12,7 @@ private:
     
 public:
     Gandalf();
-    Gandalf(float health, float damage, string weapon, float stamina);
+    Gandalf(float health, string weapon, float stamina);
     void showAbilities(int);
     void excecuteAbilities(int);
     ~Gandalf();
@@ -20,9 +20,7 @@ public:
 
 typedef void (Gandalf::*GandalfAbilities)();
 
-Gandalf::Gandalf() {
-    setNumAbilities(2);
-}
+Gandalf::Gandalf() {}
 
 void Gandalf::showAbilities(int n) {
     setShowName(true); 
@@ -49,10 +47,11 @@ void Gandalf::excecuteAbilities(int n) {
     }; 
 }
 
-Gandalf::Gandalf(float health, float damage, string weapon, float stamina)
+Gandalf::Gandalf(float health, string weapon, float stamina) : Warrior(weapon)
 {
-    Wizard(health, damage, stamina);
-    Warrior(health, damage, weapon, stamina);
+    setHealth(health);
+    setStamina(stamina);
+    setNumAbilities(2);
 }
 
 Gandalf::~Gandalf()
