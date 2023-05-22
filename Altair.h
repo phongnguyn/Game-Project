@@ -8,59 +8,75 @@
 class Altair : public Warrior, Assasin
 {
 public:
+    //constructors
     Altair();
-    Altair(float health, float damage, string weapon, float stamina);
+    Altair(float health, float stamina, string _name);
+    //controls ability functionality
     void showAbilities(int);
-    void excecuteAbilities(int);
+    int excecuteAbilities(int);
+
     ~Altair();
 };
 
-Altair::Altair() {
-    setNumAbilities(4); 
+//constructors
+Altair::Altair() {  }
+Altair::Altair(float health, float stamina, string _name)
+{
+    setName(_name);
+    setNumAbilities(5);
+    setHealth(health);
+    setStamina(stamina);
 }
 
+
+//displays abilities to user
 void Altair::showAbilities(int n) {
     setShowName(true); 
     switch (n)
     {
-    case 1:
-        Altair::swingWeapon();
-        break;
-    case 2:
-        Altair::shank();
-        break;
-    case 3:
-        evade();
-        break;
-    case 4:
-        counter();
-        break;
+        case 1:
+            swingWeapon();
+            break;
+        case 2:
+            meditate();
+            break;
+        case 3:
+            shank();
+            break;
+        case 4:
+            evade();
+            break;
+        case 5:
+            counter();
+            break;
     }; 
     setShowName(false);
 }
 
-void Altair::excecuteAbilities(int n) {
+//controls ability execution
+int Altair::excecuteAbilities(int n) {
+    //initial selection
     switch (n)
     {
-    case 1:
-        Altair::swingWeapon();
-        break;
-    case 2:
-        Altair::shank();
-        break;
-    case 3:
-        evade();
-        break;
-    case 4:
-        counter();
-        break;
-    };
-}
+        case 1:
+            return swingWeapon();
+            break;
+        case 2:
+            return meditate();
+            break;
+        case 3:
+            return shank();
+            break;
+        case 4:
+            return evade();
+            break;
+        case 5:
+            return counter();
+            break;
+    }; 
 
-Altair::Altair(float health, float damage, string weapon, float stamina)
-{
-    Warrior(health, damage, weapon, stamina);
-    Assasin(health, damage, weapon, stamina);
+    return 0;
+    
 }
 
 Altair::~Altair()

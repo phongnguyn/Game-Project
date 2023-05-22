@@ -10,19 +10,28 @@
 
 class Machine: public Person 
 {
-private:
-    
 public:
+    //constructor
     Machine();
+    //machine ability choice
     void chooseAbilities();
+
     ~Machine();
 };
 
-Machine::Machine() : Person(rand() % 4 + 1) {}
+//constructor
+Machine::Machine(): 
+    Person(rand() % 4 + 1, 1) {  }
+
+//controls machine ability choice
+
 
 void Machine::chooseAbilities() {
-    int option = rand() % getPlayer()->getNumAbilities() + 1;
-    getPlayer()->excecuteAbilities(option);
+    
+    int option = rand() % getPlayer()->getNumAbilities()+1;
+    while (getPlayer()->excecuteAbilities(option) == 0){
+        int option = rand() % getPlayer()->getNumAbilities()+1;
+    }
 }
 
 Machine::~Machine()

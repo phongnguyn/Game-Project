@@ -9,30 +9,33 @@
 
 class Reinhardt: public Warrior, public Tanker
 {
-private:
 public:
+    //constructors
     Reinhardt();
-    Reinhardt(float health, float damage, string weapon, float stamina);
+    Reinhardt(float health, float stamina, string _name);
+    //ability functionality
     void showAbilities(int);
-    void excecuteAbilities(int);
+    int excecuteAbilities(int);
+    //destructor
     ~Reinhardt();
 };
 
-Reinhardt::Reinhardt() {
-    setNumAbilities(3);
+//constructors
+Reinhardt::Reinhardt(){}
+Reinhardt::Reinhardt(float health, float stamina, string _name) {
+    setName(_name);
+    setNumAbilities(4);
+    setHealth(health);
+    setStamina(stamina);
 }
 
-Reinhardt::Reinhardt(float health, float damage, string weapon, float stamina) {
-    Warrior(health, damage, weapon, stamina);
-    Tanker(health, damage, stamina);
-}
-
+//displays abilities to user
 void Reinhardt::showAbilities(int n) {
     setShowName(true); 
     switch (n)
     {
     case 1:
-        Reinhardt::bash();
+        bash();
         break;
     case 2:
         block();
@@ -40,23 +43,36 @@ void Reinhardt::showAbilities(int n) {
     case 3:
         swingWeapon();
         break;
+    case 4:
+        meditate();
+        break;
     }; 
-    setShowName(false);}
+    setShowName(false);
+}
 
-void Reinhardt::excecuteAbilities(int n) {
+//controls ability execution
+int Reinhardt::excecuteAbilities(int n) {
+    //initial selection
     switch (n)
     {
     case 1:
-        Reinhardt::bash();
+        return bash();
         break;
     case 2:
-        block();
+        return block();
         break;
     case 3:
-        swingWeapon();
+        return swingWeapon();
+        break;
+    case 4:
+        return meditate();
         break;
     }; 
+
+    return 0;
+    
 }
+
 
 Reinhardt::~Reinhardt()
 {

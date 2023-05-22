@@ -8,51 +8,67 @@
 class Gandalf: public Warrior, Wizard
 
 {
-private:
-    
 public:
+    //constructors
     Gandalf();
-    Gandalf(float health, float damage, string weapon, float stamina);
+    Gandalf(float health, float stamina, string _name);
+    //ability functionality
     void showAbilities(int);
-    void excecuteAbilities(int);
+    int excecuteAbilities(int);
+
     ~Gandalf();
 };
 
-typedef void (Gandalf::*GandalfAbilities)();
-
-Gandalf::Gandalf() {
-    setNumAbilities(2);
+//constructors
+Gandalf::Gandalf() {  }
+Gandalf::Gandalf(float health, float stamina, string _name){
+    setName(_name);
+    setNumAbilities(4);
+    setHealth(health);
+    setStamina(stamina);
 }
 
+//displays ability names
 void Gandalf::showAbilities(int n) {
     setShowName(true); 
     switch (n)
     {
     case 1:
-        Gandalf::castSpell();
+        castSpell();
         break;
     case 2:
+        heal();
+        break;
+    case 3:
         swingWeapon();
         break;
+    case 4:
+        meditate();
     }; 
-    setShowName(false);}
+    setShowName(false);
+}
 
-void Gandalf::excecuteAbilities(int n) {
+//controls ability execution
+int Gandalf::excecuteAbilities(int n) {
+    //initial selection
     switch (n)
     {
     case 1:
-        Gandalf::castSpell();
+        return castSpell();
         break;
     case 2:
-        swingWeapon();
+        return heal();
         break;
-    }; 
-}
+    case 3:
+        return swingWeapon();
+        break;
+    case 4:
+        return meditate();
+        break;
+    };
 
-Gandalf::Gandalf(float health, float damage, string weapon, float stamina)
-{
-    Wizard(health, damage, stamina);
-    Warrior(health, damage, weapon, stamina);
+    return 0;
+    
 }
 
 Gandalf::~Gandalf()

@@ -8,48 +8,90 @@ using namespace std;
 class Player
 {
 private:
+    int abilityExecuted;
+    string name;
     float health;
-    float damage;
     float stamina;
     Player* opponent;
     int numAbilities = 0;
     bool showName = false; 
 public:
-    virtual void takeDamage(int _damage) {}
+    //purely virtual functions
     virtual void showAbilities(int) {}
-    virtual void excecuteAbilities(int) {}
+    virtual int excecuteAbilities(int) {}
+
+    //controls take damage
+    virtual void takeDamage(int _damage);
+
+    //getters / setters
+    int getAbilityExecuted();
+    void setAbilityExecuted(int n);
     void setHealth(int _health);
     float getHealth();
-    void setDamage(int _damage);
-    float getDamge();
     void setStamina(float _stamina);
     float getStamina();
     Player* getOpponent();
-    void setOpponent(auto);
+    void setOpponent(Player*);
     void setNumAbilities(int);
     int getNumAbilities();
     bool ShowName() {return showName;}
     void setShowName(bool _showName) {showName = _showName;} 
+    void setName(string name);
+    string getName();
 };
 
-void Player::setHealth(int _health) {health = _health;}
+//controls take damage
+void Player::takeDamage(int _damage){
+    health = health - _damage;
+}
 
-float Player::getHealth() {return health;}
+//getters / setters
+int Player::getAbilityExecuted(){
+    return abilityExecuted;
+}
 
-void Player::setDamage(int _damage) {damage = _damage;}
+void Player::setAbilityExecuted(int n){
+    abilityExecuted = n;
+}
 
-float Player::getDamge() {return damage;}
+void Player::setHealth(int _health){
+    health = _health;
+}
 
-void Player::setStamina(float _stamina) {stamina = _stamina;}
+float Player::getHealth(){
+    return health;
+}
 
-float Player::getStamina() {return stamina;}
+void Player::setStamina(float _stamina){
+    stamina = _stamina;
+}
 
-Player* Player::getOpponent() {return opponent;}
+float Player::getStamina(){
+    return stamina;
+}
 
-void Player::setOpponent(auto opp) {opponent = opp;}
+Player* Player::getOpponent(){
+    return opponent;
+}
 
-void Player::setNumAbilities(int _numAbilities) {numAbilities = _numAbilities;}
+void Player::setOpponent(Player* opp){
+    opponent = opp;
+}
 
-int Player::getNumAbilities() {return numAbilities;}
+void Player::setNumAbilities(int _numAbilities){
+    numAbilities = _numAbilities;
+}
+
+int Player::getNumAbilities(){
+    return numAbilities;
+}
+
+void Player::setName(string _name){
+    name = _name;
+}
+
+string Player::getName(){
+    return name;
+}
 
 #endif

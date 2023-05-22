@@ -8,62 +8,75 @@
 class Ezio: public Assasin, Wizard
 
 {
-private:
-    
 public:
+    //constructors
     Ezio();
-    Ezio(float health, float damage, string weapon, float stamina);
+    Ezio(float health, float stamina, string _name);
+    //controls ability functionality
     void showAbilities(int);
-    void excecuteAbilities(int);
+    int excecuteAbilities(int);
+
     ~Ezio();
 };
 
-Ezio::Ezio() {
-    setNumAbilities(4); 
+//constructors
+Ezio::Ezio() {  }
+Ezio::Ezio(float health, float stamina, string _name)
+{
+    setName(_name);
+    setNumAbilities(5);
+    setHealth(health);
+    setStamina(stamina);
 }
 
+//displays abilities to user
 void Ezio::showAbilities(int n) {
     setShowName(true); 
     switch (n)
     {
-    case 1:
-        Ezio::castSpell();
-        break;
-    case 2:
-        Ezio::shank();
-        break;
-    case 3:
-        evade();
-        break;
-    case 4:
-        counter();
-        break;
+        case 1:
+            castSpell();
+            break;
+        case 2:
+            heal();
+            break;
+        case 3:
+            shank();
+            break;
+        case 4:
+            evade();
+            break;
+        case 5:
+            counter();
+            break;
     }; 
     setShowName(false);
 }
 
-void Ezio::excecuteAbilities(int n) {
+//controls ability execution
+int Ezio::excecuteAbilities(int n) {
+    //initial selection
     switch (n)
     {
     case 1:
-        Ezio::castSpell();
+        return castSpell();
         break;
     case 2:
-        Ezio::shank();
+        return heal();
         break;
     case 3:
-        evade();
+        return shank();
         break;
     case 4:
-        counter();
+        return evade();
+        break;
+    case 5:
+        return counter();
         break;
     };
-}
 
-Ezio::Ezio(float health, float damage, string weapon, float stamina)
-{
-    Wizard(health, damage, stamina);
-    Assasin(health, damage, weapon, stamina);
+    return 0;
+    
 }
 
 Ezio::~Ezio()
