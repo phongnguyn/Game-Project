@@ -54,13 +54,17 @@ void Person::chooseAbilities() {
     }
 
     int num = 0;
-    
-    while (!(cin >> num) || (num > player->getNumAbilities()) || (num < 1)) {
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "invalid input, try again\n";
+
+    player->setExecuted(false);
+    while (!player->getExecuted()) {
+        while (!(cin >> num) || (num > player->getNumAbilities()) || (num < 1)) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "invalid input, try again\n";
+        }
+
+        player->excecuteAbilities(num);
     }
-    player->excecuteAbilities(num);
 }
 
 Player* Person::getPlayer() {return player;}

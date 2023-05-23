@@ -23,15 +23,18 @@ void Altair::showAbilities(int n) {
     switch (n)
     {
     case 1:
-        Altair::swingWeapon();
+        swingWeapon();
         break;
     case 2:
-        Altair::shank();
+        meditate();
         break;
     case 3:
-        evade();
+        shank();
         break;
     case 4:
+        evade();
+        break;
+    case 5:
         counter();
         break;
     }; 
@@ -42,15 +45,18 @@ void Altair::excecuteAbilities(int n) {
     switch (n)
     {
     case 1:
-        Altair::swingWeapon();
+        swingWeapon();
         break;
     case 2:
-        Altair::shank();
+        meditate();
         break;
     case 3:
-        evade();
+        shank();
         break;
     case 4:
+        evade();
+        break;
+    case 5:
         counter();
         break;
     };

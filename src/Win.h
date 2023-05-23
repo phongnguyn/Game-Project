@@ -18,6 +18,7 @@ public:
     void check_stage();
     void selectionScreen();
     int characterSelectionScreen();
+    void displayStat(Person*);
     void gamePlay();
     void gameOver();
     int getStage() {return stage;}
@@ -30,9 +31,15 @@ Win::Win(/* args */)
 }
 
 void Win::gameOver() {
-    cout << "Player 1 " << ((player1->getPlayer()->getHealth() <= 0) ? "lost\n" : "win \n");
-    cout << ((mode) ? "Player 2 " : "Machine ") << ((player2->getPlayer()->getHealth() <= 0) ? "lost\n" : "win\n");
-    cout << "Play Again? (y/n)\n";
+    //Outputs winner
+    if(player1->getPlayer()->getHealth() > 0){
+        cout  << player1->getPlayer()->getName() << " Won!\n";
+    }else{
+        cout << player2->getPlayer()->getName() << "Won!\n";
+    }
+    cout << "press 'y' to replay 'n' to exit game!\n";
+
+    //determines whether to replay
     string in;
     while (!(cin >> in) && !(in == "y" && in == "n")) {
         cin.clear();
@@ -43,13 +50,29 @@ void Win::gameOver() {
     else stage ++;
 }
 
+void Win::displayStat(Person* _player){
+    cout << _player->getPlayer()->getName() << endl;
+    cout << "Health: " << _player->getPlayer()->getHealth() << endl;
+    cout << "Stamina: " << _player->getPlayer()->getStamina() << endl;
+    cout << endl;
+}
+
 void Win::gamePlay() {
     while (player1->getPlayer()->getHealth() > 0 && player2->getPlayer()->getHealth() > 0) {
+        system("clear");
+        displayStat(player1);
+        displayStat(player2);
         player1->chooseAbilities();
         player2->chooseAbilities();
+
+        cout << "Press Any Key to Continue\n";
+        getchar();
+        getchar();
     }
     stage ++;
 }
+
+//controls character selection
 
 int Win::characterSelectionScreen() {
     cout << "list of characters:\n";
@@ -66,16 +89,22 @@ int Win::characterSelectionScreen() {
     return num;
 }
 
+//controls gamemode selection and player allocation
+
 void Win::selectionScreen() {
     while ((cout << "please select the game mode, O: single player, 1: multiplayer:") && !(cin >> mode) || (mode > 1) || (mode < 0)) {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "invalid input, try again\n";
     }
+    string str;
     player1 = new Person(characterSelectionScreen());
+    player1->getPlayer()->setName("Player 1");
 
     if (mode) {
+        cin >> str;
         player2 = new Person(characterSelectionScreen());
+        player2->getPlayer()->setName("Player 2");
     }   else player2 = new Machine();
 
     player1->getPlayer()->setOpponent(player2->getPlayer());  
@@ -84,6 +113,7 @@ void Win::selectionScreen() {
 }
 
 void Win::check_stage() {
+    system("clear");
     switch(stage) {
         case 0:
             Win::selectionScreen();

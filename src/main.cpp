@@ -15,9 +15,6 @@ int main() {
     }
 
     if (op == "y") system("google-chrome https://phongnguyn.github.io/Game-Project/");
-
-    system("clear");
-
     cout << "Let the battle begin!" << endl;
     
     while (win.getStage() < 3) {

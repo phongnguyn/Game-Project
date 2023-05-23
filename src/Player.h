@@ -8,13 +8,14 @@ using namespace std;
 class Player
 {
 private:
+    string name;
     float health;
     float stamina;
     Player* opponent;
     int numAbilities = 0;
     bool showName = false; 
     float damageMultiplier = 1;
-
+    bool executed = false;
 public:
     virtual void takeDamage(int _damage) {setHealth(getHealth() - damageMultiplier * _damage);}
     virtual void showAbilities(int) {}
@@ -30,6 +31,13 @@ public:
     bool ShowName() {return showName;}
     void setShowName(bool _showName) {showName = _showName;} 
     void setDamageMultiplier(float _damageMultiplier);
+    void setName(string name);
+
+    //set and get executed state of the character's abilities;
+    void setExecuted(bool _executed) {executed = _executed;}
+    bool getExecuted() {return executed;}  
+    
+    string getName();
 };
 
 void Player::setHealth(int _health) {health = _health;}
@@ -51,4 +59,13 @@ int Player::getNumAbilities() {return numAbilities;}
 void Player::setDamageMultiplier(float _damageMultiplier) {
     damageMultiplier = _damageMultiplier;
 }
+
+void Player::setName(string _name){
+    name = _name;
+}
+
+string Player::getName(){
+    return name;
+}
+
 #endif
