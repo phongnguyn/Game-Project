@@ -28,29 +28,28 @@ Person::Person(int id)
 {
     switch(id) {
         case 1: {
-            player = new Reinhardt(120, "Sword", 50);
+            player = new Reinhardt(90, "Sword", 50);
             break;
         }
         case 2: {
-            player = new Ezio(120, "katana", 50);
+            player = new Ezio(60, "katana", 50);
             break;
         }
         case 3: {
-            player = new Gandalf(120, "katana", 50);
+            player = new Gandalf(70, "katana", 50);
             break;
         }
         case 4:
-            player = new Altair(120, "katana", 50);
+            player = new Altair(70, "katana", 50);
             break;
     }
 }
 
 void Person::chooseAbilities() {
-    cout << "please choose one of these abilities\n";
+    cout << player->getName() << " choose one of these abilities from 1 to " << player->getNumAbilities() << "\n";
     for (int i = 0; i < player->getNumAbilities(); i ++) {
-        cout << i + 1 << " ";
+        cout << i + 1 << ": ";
         player->showAbilities(i + 1);
-        cout << "\n";
     }
 
     int num = 0;
@@ -60,7 +59,7 @@ void Person::chooseAbilities() {
         while (!(cin >> num) || (num > player->getNumAbilities()) || (num < 1)) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "invalid input, try again\n";
+            cout << "invalid input, try again please select from 1 to " << player->getNumAbilities() << "\n";
         }
 
         player->excecuteAbilities(num);

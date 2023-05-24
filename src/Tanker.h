@@ -17,20 +17,20 @@ public:
 Tanker::Tanker() {}
 
 void Tanker::block() {
-    if (ShowName()) {cout << __FUNCTION__ << " (regains 20 stamina, blocks significant damage)"; return;}
+    if (ShowName()) {cout << __FUNCTION__ << " (regains 20 stamina, blocks significant damage)\n"; return;}
     //functionality
     setDamageMultiplier(0.5 + rand() % 25/100);
     setStamina(getStamina() + 20);
 
     //display
-    cout << getName() <<" used Block, 15 stamina regained\n";
+    cout << getName() <<" used Block, 202 stamina regained\n";
     cout << "Next attack on " << getName() << " will do reduced damage\n\n";
 
     setExecuted(true);
 }
 
 void Tanker::bash() {
-    if (ShowName()) {cout << __FUNCTION__<< " (uses 15 stamina, does high damage)"; return;}
+    if (ShowName()) {cout << __FUNCTION__<< " (uses 15 stamina, does high damage)\n"; return;}
     
     setDamageMultiplier(1);
 

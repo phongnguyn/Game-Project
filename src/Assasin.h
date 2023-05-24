@@ -20,10 +20,10 @@ public:
 Assasin::Assasin(string weapon) {_weapon = weapon;}
 
 void Assasin::counter() {
-    if (ShowName()) {cout << __FUNCTION__ << " (regains 15 stamina, reduces incoming damage by small amount)"; return;}
+    if (ShowName()) {cout << __FUNCTION__ << " (regains 15 stamina, reduces incoming damage by small amount)\n"; return;}
 
     //functionality
-    setDamageMultiplier(0.05 + rand() % 5 / 100);
+    setDamageMultiplier(0.9 + rand() % 5 / 100);
     setStamina(getStamina() + 15);
 
     //display
@@ -34,7 +34,7 @@ void Assasin::counter() {
 }
 
 void Assasin::evade() {
-    if (ShowName()) {cout << __FUNCTION__ <<  " (uses 40 stamina, stops all incoming damage)"; return; }
+    if (ShowName()) {cout << __FUNCTION__ <<  " (uses 40 stamina, stops all incoming damage)\n"; return; }
 
     setDamageMultiplier(1);
 
@@ -52,7 +52,7 @@ void Assasin::evade() {
 }
 
 void Assasin::shank() {
-    if (ShowName()) {cout << __FUNCTION__<< " (uses 5 stamina does small damage)"; return;}
+    if (ShowName()) {cout << __FUNCTION__<< " (uses 5 stamina does small damage)\n"; return;}
 
     setDamageMultiplier(1);
 
@@ -62,7 +62,6 @@ void Assasin::shank() {
         int damage = 5 + rand() % 5;
         getOpponent()->takeDamage(damage);
         //display
-        system("clear");
         cout << getName() << " used shank and dealt " << damage << " damage to " << getOpponent()->getName() << endl;
         cout << getName() << " lost 5 stamina\n\n";
 

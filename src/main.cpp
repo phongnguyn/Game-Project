@@ -17,7 +17,7 @@ int main() {
     if (op == "y") system("google-chrome https://phongnguyn.github.io/Game-Project/");
     cout << "Let the battle begin!" << endl;
     
-    while (win.getStage() < 3) {
+    while (win.getStage() < 4) {
         win.check_stage();
     }
     

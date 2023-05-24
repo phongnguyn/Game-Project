@@ -23,7 +23,7 @@ Reinhardt::Reinhardt() {}
 Reinhardt::Reinhardt(float health, string weapon, float stamina) : Warrior(weapon) {
     setHealth(health);
     setStamina(stamina);
-    setNumAbilities(3);    
+    setNumAbilities(4);    
 }
 
 void Reinhardt::showAbilities(int n) {
@@ -39,6 +39,9 @@ void Reinhardt::showAbilities(int n) {
     case 3:
         swingWeapon();
         break;
+    case 4:
+        meditate();
+        break;
     }; 
     setShowName(false);}
 
@@ -53,6 +56,9 @@ void Reinhardt::excecuteAbilities(int n) {
         break;
     case 3:
         swingWeapon();
+        break;
+    case 4:
+        meditate();
         break;
     }; 
 }

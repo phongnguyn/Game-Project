@@ -22,6 +22,7 @@ Machine::Machine() : Person(rand() % 4 + 1) {getPlayer()->setName("Machine");}
 
 void Machine::chooseAbilities() {
     int option = rand() % getPlayer()->getNumAbilities() + 1;
+    cout << "Machine uses ";
     getPlayer()->setShowName(true);
     getPlayer()->excecuteAbilities(option);
     getPlayer()->setShowName(false);

@@ -37,6 +37,9 @@ void Ezio::showAbilities(int n) {
     case 4:
         counter();
         break;
+    case 5:
+        heal();
+        break;
     }; 
     setShowName(false);
 }
@@ -56,6 +59,9 @@ void Ezio::excecuteAbilities(int n) {
     case 4:
         counter();
         break;
+    case 5:
+        heal();
+        break;
     };
 }
 
@@ -63,7 +69,7 @@ Ezio::Ezio(float health, string weapon, float stamina) : Assasin(weapon)
 {
     setHealth(health);
     setStamina(stamina);
-    setNumAbilities(4); 
+    setNumAbilities(5); 
 }
 
 Ezio::~Ezio()

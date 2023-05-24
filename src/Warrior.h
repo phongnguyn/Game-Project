@@ -19,7 +19,7 @@ Warrior::Warrior(string weapon) {_weapon = weapon;}
 
 void Warrior::swingWeapon() {
     //shows ability name / functionality
-    if (ShowName()) {cout << __FUNCTION__<< " (does large damage reduces stamina by 20)"; return;}
+    if (ShowName()) {cout << __FUNCTION__<< " (does large damage reduces stamina by 20) \n"; return;}
 
     //ability functionality
     if((getStamina() - 20) >= 0){
@@ -39,7 +39,7 @@ void Warrior::swingWeapon() {
 
 void Warrior::meditate() {
     //shows ability name / functionality
-    if (ShowName()) {cout << __FUNCTION__ << " (regains 30 Stamina)";}
+    if (ShowName()) {cout << __FUNCTION__ << " (regains 30 Stamina)\n"; return;}
 
     //ability functionality
     setStamina(getStamina() + 30);

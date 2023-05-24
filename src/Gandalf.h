@@ -32,6 +32,13 @@ void Gandalf::showAbilities(int n) {
     case 2:
         swingWeapon();
         break;
+    case 3:
+        heal();
+        break;
+    case 4:
+        meditate();
+        break;
+
     }; 
     setShowName(false);}
 
@@ -44,6 +51,12 @@ void Gandalf::excecuteAbilities(int n) {
     case 2:
         swingWeapon();
         break;
+    case 3:
+        heal();
+        break;
+    case 4:
+        meditate();
+        break;
     }; 
 }
 
@@ -51,7 +64,7 @@ Gandalf::Gandalf(float health, string weapon, float stamina) : Warrior(weapon)
 {
     setHealth(health);
     setStamina(stamina);
-    setNumAbilities(2);
+    setNumAbilities(4);
 }
 
 Gandalf::~Gandalf()

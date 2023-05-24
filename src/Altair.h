@@ -66,7 +66,7 @@ Altair::Altair(float health, string weapon, float stamina) : Warrior(weapon)
 {
     setHealth(health);
     setStamina(stamina);
-    setNumAbilities(4); 
+    setNumAbilities(5); 
 }
 
 Altair::~Altair()
