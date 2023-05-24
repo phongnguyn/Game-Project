@@ -9,14 +9,13 @@ class Altair : public Warrior, Assasin
 {
 public:
     Altair();
-    Altair(float health, float damage, string weapon, float stamina);
+    Altair(float, string, float);
     void showAbilities(int);
     void excecuteAbilities(int);
     ~Altair();
 };
 
 Altair::Altair() {
-    setNumAbilities(4); 
 }
 
 void Altair::showAbilities(int n) {
@@ -24,15 +23,18 @@ void Altair::showAbilities(int n) {
     switch (n)
     {
     case 1:
-        Altair::swingWeapon();
+        swingWeapon();
         break;
     case 2:
-        Altair::shank();
+        meditate();
         break;
     case 3:
-        evade();
+        shank();
         break;
     case 4:
+        evade();
+        break;
+    case 5:
         counter();
         break;
     }; 
@@ -43,24 +45,28 @@ void Altair::excecuteAbilities(int n) {
     switch (n)
     {
     case 1:
-        Altair::swingWeapon();
+        swingWeapon();
         break;
     case 2:
-        Altair::shank();
+        meditate();
         break;
     case 3:
-        evade();
+        shank();
         break;
     case 4:
+        evade();
+        break;
+    case 5:
         counter();
         break;
     };
 }
 
-Altair::Altair(float health, float damage, string weapon, float stamina)
+Altair::Altair(float health, string weapon, float stamina) : Warrior(weapon)
 {
-    Warrior(health, damage, weapon, stamina);
-    Assasin(health, damage, weapon, stamina);
+    setHealth(health);
+    setStamina(stamina);
+    setNumAbilities(5); 
 }
 
 Altair::~Altair()

@@ -5,8 +5,9 @@
 #include <string>
 #include <time.h>
 #include <stdlib.h>
-#include "SFML/Graphics.hpp"
+#include <fstream>
 using namespace std;
 #include <limits>
+#include <chrono>
 
 #endif

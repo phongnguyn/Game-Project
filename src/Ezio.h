@@ -12,14 +12,13 @@ private:
     
 public:
     Ezio();
-    Ezio(float health, float damage, string weapon, float stamina);
+    Ezio(float health, string weapon, float stamina);
     void showAbilities(int);
     void excecuteAbilities(int);
     ~Ezio();
 };
 
 Ezio::Ezio() {
-    setNumAbilities(4); 
 }
 
 void Ezio::showAbilities(int n) {
@@ -38,6 +37,9 @@ void Ezio::showAbilities(int n) {
     case 4:
         counter();
         break;
+    case 5:
+        heal();
+        break;
     }; 
     setShowName(false);
 }
@@ -46,10 +48,10 @@ void Ezio::excecuteAbilities(int n) {
     switch (n)
     {
     case 1:
-        Ezio::castSpell();
+        castSpell();
         break;
     case 2:
-        Ezio::shank();
+        shank();
         break;
     case 3:
         evade();
@@ -57,13 +59,17 @@ void Ezio::excecuteAbilities(int n) {
     case 4:
         counter();
         break;
+    case 5:
+        heal();
+        break;
     };
 }
 
-Ezio::Ezio(float health, float damage, string weapon, float stamina)
+Ezio::Ezio(float health, string weapon, float stamina) : Assasin(weapon)
 {
-    Wizard(health, damage, stamina);
-    Assasin(health, damage, weapon, stamina);
+    setHealth(health);
+    setStamina(stamina);
+    setNumAbilities(5); 
 }
 
 Ezio::~Ezio()
