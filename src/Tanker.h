@@ -23,7 +23,7 @@ void Tanker::block() {
     setStamina(getStamina() + 20);
 
     //display
-    cout << getName() <<" used Block, 202 stamina regained\n";
+    cout << getName() <<" used Block, 20 stamina regained\n";
     cout << "Next attack on " << getName() << " will do reduced damage\n\n";
 
     setExecuted(true);

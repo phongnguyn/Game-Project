@@ -36,7 +36,7 @@ void Assasin::counter() {
 void Assasin::evade() {
     if (ShowName()) {cout << __FUNCTION__ <<  " (uses 40 stamina, stops all incoming damage)\n"; return; }
 
-    setDamageMultiplier(1);
+    setDamageMultiplier(0);
 
     if (getStamina() - 40 >= 0){
         //functionality

@@ -18,8 +18,8 @@ private:
     bool executed = false;
 public:
     virtual void takeDamage(int _damage) {setHealth(getHealth() - damageMultiplier * _damage);}
-    virtual void showAbilities(int) {}
-    virtual void excecuteAbilities(int) {}
+    virtual void showAbilities(int) = 0;
+    virtual void excecuteAbilities(int) = 0;
     void setHealth(int _health);
     float getHealth();
     void setStamina(float _stamina);

@@ -80,6 +80,9 @@ void Win::gamePlay() {
         displayStat(player[0]);
         displayStat(player[1]);
         player[0]->chooseAbilities();
+
+        if (player[1]->getPlayer()->getHealth() <= 0) break;
+
         player[1]->chooseAbilities();
 
         cout << "Press Any Key to Continue\n";
@@ -163,7 +166,7 @@ void Win::check_stage() {
             loadingScreen();
             break;
         case 1:
-            Win::selectionScreen();
+            Win::selectionScreen(); //inheritance, 
             break;
         case 2:
             Win::gamePlay();
